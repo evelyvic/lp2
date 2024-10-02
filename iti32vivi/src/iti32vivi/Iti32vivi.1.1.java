@@ -2,26 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package javaapplication5;
+package scr/iti32vivi;
 
 /**
  *
  * @author Aluno
  */
-public class JavaApplication5 {
+public class iti32vivi.1.1.java {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-      Carro carro = new Carro("Fiat", "Gol");
-    carro.marca = "VW"; // Irá apresentar um erro de compilação
-    carro.andar(); 
+        Caminhao caminhao = new Caminhao("Mercedes", "1318", 16);
+        // O caminhão Mercedes 1318 carrega 16 toneladas
+        caminhao.mostraCarga();
     }
-  lass Carro {
-  private String marca;
-  private String nome;
+    
+}
+class Carro {
+  private final String marca;
+  private final String nome;
   public Carro(String marca, String nome) {
     this.marca = marca;
     this.nome = nome;
@@ -34,7 +36,7 @@ public class JavaApplication5 {
   }
 }
 
-  class Caminhao extends Carro {
+class Caminhao extends Carro {
     private int carga;
     public Caminhao(String marca, String nome, int carga) {
         super(marca, nome);
@@ -43,5 +45,17 @@ public class JavaApplication5 {
     public void mostraCarga() {
         System.out.println("O caminhão " + super.nomeCompleto() +
         " carrega " + carga + " toneladas");
+    }    
+     public void andar() {
+        System.out.println("O caminhão " + super.nomeCompleto() +
+        " está carregando " + carga + " toneladas");
     }
-  }
+    public void andar(boolean deRe) {
+        if (deRe)
+            System.out.println("O caminhão " + super.nomeCompleto() +
+            " está carregando " + carga + " toneladas de ré");
+        else
+            andar();
+    }
+
+}
