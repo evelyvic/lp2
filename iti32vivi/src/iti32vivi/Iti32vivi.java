@@ -2,38 +2,42 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package iti32vivi;
+package mariavaleteprojeto;
 
 /**
  *
  * @author Aluno
  */
-public class Iti32vivi {
+public class MariaValeteprojeto {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Carro carro = new Carro("Toyota","Corolla");
-        carro.andar();
-        // ira exibir "O carro Toyota Corolla está andando".
+        // TODO code application logic here
+        /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication5;
+
+/**
+ *
+ * @author Aluno
+ */
+public class JavaApplication5 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    Carro carro = new Carro("Fiat", "Gol");
+    carro.andar();
     }
     
+    
 }
-
-class Carro {
-    private String marca;
-    private String nome; 
-    public Carro(String marca, String nome){
-        this.marca = marca;
-        this.nome = nome;
-         }
-    public void andar(){
-        System.out.println("O carro " + marca + " " + nome + " esta andando");
-        
-    }
-}
-
 class Carro {
   private String marca;
   private String nome;
@@ -46,12 +50,5 @@ class Carro {
   }
   public void andar() {
     System.out.println("O carro " + nomeCompleto() + " está andando");
-  }
-}
-public class App {
-  public static void main(String[] args) {
-    Carro carro = new Carro("Fiat", "Gol");
-    carro.marca = "VW"; // Irá apresentar um erro de compilação
-    carro.andar();
   }
 }
