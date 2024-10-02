@@ -5,13 +5,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package javaapplication5;
+package scr/iti32vivi;
 
 /**
  *
  * @author Aluno
  */
-public class JavaApplication5 {
+public class iti32vivi.java {
 
     /**
      * @param args the command line arguments
