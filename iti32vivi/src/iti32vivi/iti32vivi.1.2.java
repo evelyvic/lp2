@@ -2,60 +2,64 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package javaapplication10;
+package src/iti32/vivi;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Aluno
  */
-public class JavaApplication10 {
+public class iti32vivi.1.2.java {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Posto posto = new Posto(3);
         Caminhao caminhao = new Caminhao("Mercedes", "1318", 16);
-        // O caminhão Mercedes 1318 carrega 16 toneladas
-        caminhao.mostraCarga();
+
+        try {
+            Bomba bombaDisponivel = posto.bombaDisponivel();
+            bombaDisponivel.abastecer(caminhao);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
     }
     
 }
-class Carro {
-  private final String marca;
-  private final String nome;
-  public Carro(String marca, String nome) {
-    this.marca = marca;
-    this.nome = nome;
-  }
-  protected String nomeCompleto() {
-    return marca + " " + nome;
-  }
-  public void andar() {
-    System.out.println("O carro " + nomeCompleto() + " está andando");
-  }
+class Bomba {
+    private String combustivel;
+    private Carro carroAbastecendo;
+    public Bomba(String combustivel) {
+        this.combustivel = combustivel;
+    }
+    public void abastecer(Carro carro) {
+        this.carroAbastecendo = carro;
+        System.out.println("O " + carro.getClass().getSimpleName() + " " + carro.nomeCompleto() + " está sendo abastecido com " + this.combustivel);
+    }
+    public boolean estaDisponivel() {
+        return this.carroAbastecendo == null;
+    }
+}
+class Posto {
+    private List<Bomba> bombas;
+    public Posto(int numBombas) {
+        bombas = new ArrayList<Bomba>();
+        for (int i = 0; i < numBombas; i++) {
+            bombas.add(new Bomba("Diesel"));
+        }
+    }
+    public Bomba bombaDisponivel() throws Exception {
+        for (Bomba bomba : bombas) {
+            if (bomba.estaDisponivel()) {
+                return bomba;
+            }
+        }
+        throw new Exception("Nenhuma bomba disponível");
+    }
 }
 
-class Caminhao extends Carro {
-    private int carga;
-    public Caminhao(String marca, String nome, int carga) {
-        super(marca, nome);
-        this.carga = carga;
-    }
-    public void mostraCarga() {
-        System.out.println("O caminhão " + super.nomeCompleto() +
-        " carrega " + carga + " toneladas");
-    }    
-     public void andar() {
-        System.out.println("O caminhão " + super.nomeCompleto() +
-        " está carregando " + carga + " toneladas");
-    }
-    public void andar(boolean deRe) {
-        if (deRe)
-            System.out.println("O caminhão " + super.nomeCompleto() +
-            " está carregando " + carga + " toneladas de ré");
-        else
-            andar();
-    }
-
-}
